@@ -19,7 +19,8 @@ public class frmInventario extends javax.swing.JFrame {
         this.objCon = objCon;
         this.dao = new clsRecursoDAO(cn);
         initComponents();
-        setLocationRelativeTo(null);
+        jtRecursos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        getRootPane().setDefaultButton(btnBuscar); // Enter = Buscar
         mostrar();
     }
 
@@ -82,6 +83,8 @@ public class frmInventario extends javax.swing.JFrame {
         return lista.get(fila);
     }
 
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
@@ -100,7 +103,7 @@ public class frmInventario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca - Inventario de recursos");
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 18));
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTitulo.setText("Inventario de libros y revistas");
 
         jLabel1.setText("Buscar (código o título):");
@@ -119,14 +122,22 @@ public class frmInventario extends javax.swing.JFrame {
             }
         });
 
-        jtRecursos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jtRecursos);
+
+        jtRecursos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         jtRecursos.getTableHeader().setReorderingAllowed(false);
         jtRecursos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtRecursosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jtRecursos);
 
         lblTotal.setText("Total de recursos: 0");
 
@@ -158,81 +169,85 @@ public class frmInventario extends javax.swing.JFrame {
             }
         });
 
-        getRootPane().setDefaultButton(btnBuscar);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setAutoCreateGaps(true);
-        layout.setAutoCreateContainerGaps(true);
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, btnNuevo, btnEditar, btnEliminar, btnSalir);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-                .addComponent(btnBuscar)
-                .addComponent(btnTodos))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblTotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNuevo)
-                .addComponent(btnEditar)
-                .addComponent(btnEliminar)
-                .addComponent(btnSalir))
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblTitulo)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnTodos))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblTotal)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createSequentialGroup()
-            .addComponent(lblTitulo)
-            .addGap(12, 12, 12)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel1)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnBuscar)
-                .addComponent(btnTodos))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lblTotal)
-                .addComponent(btnNuevo)
-                .addComponent(btnEditar)
-                .addComponent(btnEliminar)
-                .addComponent(btnSalir))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblTitulo)
+                    .addGap(12, 12, 12)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar)
+                        .addComponent(btnTodos))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTotal)
+                        .addComponent(btnNuevo)
+                        .addComponent(btnEditar)
+                        .addComponent(btnEliminar)
+                        .addComponent(btnSalir))
+                    .addContainerGap())
         );
 
         pack();
-    }
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         mostrar();
-    }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosActionPerformed
         txtBuscar.setText("");
         mostrar();
-    }
+    }//GEN-LAST:event_btnTodosActionPerformed
 
     // Abre el formulario secundario vacío para registrar un nuevo ingreso
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         new frmRegistro(this, dao, null).setVisible(true);
-    }
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
     // Abre el formulario secundario con los datos del recurso seleccionado
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         clsRecurso rec = seleccionado();
         if (rec != null) {
             new frmRegistro(this, dao, rec).setVisible(true);
         }
-    }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    // Doble clic sobre una fila = Editar
-    private void jtRecursosMouseClicked(java.awt.event.MouseEvent evt) {
-        if (evt.getClickCount() == 2) {
-            btnEditarActionPerformed(null);
-        }
-    }
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         clsRecurso rec = seleccionado();
         if (rec == null) {
             return;
@@ -250,14 +265,21 @@ public class frmInventario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error al eliminar: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-    }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         objCon.desconectar();
         System.exit(0);
-    }
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    // Variables declaration
+    // Doble clic sobre una fila = Editar
+    private void jtRecursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtRecursosMouseClicked
+        if (evt.getClickCount() == 2) {
+            btnEditarActionPerformed(null);
+        }
+    }//GEN-LAST:event_jtRecursosMouseClicked
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
@@ -265,9 +287,10 @@ public class frmInventario extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnTodos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTotal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtRecursos;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JTextField txtBuscar;
+    // End of variables declaration//GEN-END:variables
 }
